@@ -1,0 +1,66 @@
+Cutting the Electric Bill for Internet-Scale Systems
+ABSTRACT
+Energy expenses are becoming an increasingly important
+fraction of data center operating costs. At the same time,
+the energy expense per unit of computation can vary significantly
+between two different locations. In this paper,
+we characterize the variation due to fluctuating electricity
+prices and argue that existing distributed systems should be
+able to exploit this variation for significant economic gains.
+Electricity prices exhibit both temporal and geographic variation,
+due to regional demand differences, transmission inef-
+ficiencies, and generation diversity. Starting with historical
+electricity prices, for twenty nine locations in the US, and
+network traffic data collected on Akamai’s CDN, we use simulation
+to quantify the possible economic gains for a realistic
+workload. Our results imply that existing systems may be
+able to save millions of dollars a year in electricity costs, by
+being cognizant of locational computation cost differences.
+Categories and Subject Descriptors
+C.2.4 [Computer-Communication Networks]: Distributed
+Systems
+General Terms
+Economics, Management, Performance
+1. INTRODUCTION
+With the rise of “Internet-scale” systems and “cloud computing”
+services, there is an increasing trend toward massive,
+geographically distributed systems. The largest of these are
+made up of hundreds of thousands of servers and several data
+centers. A large data center may require many megawatts
+of electricity [1], enough to power thousands of homes.
+Millions of dollars must be spent annually on the electricity
+needed to power one such system. Furthermore, these
+already large systems are increasing in size at a rapid clip,
+outpacing data center energy efficiency gains [2], and electricity
+prices are expected to rise.
+Permission to make digital or hard copies of all or part of this work for
+personal or classroom use is granted without fee provided that copies are
+not made or distributed for profit or commercial advantage and that copies
+bear this notice and the full citation on the first page. To copy otherwise, to
+republish, to post on servers or to redistribute to lists, requires prior specific
+permission and/or a fee.
+SIGCOMM’09, August 17–21, 2009, Barcelona, Spain.
+Copyright 2009 ACM 978-1-60558-594-9/09/08 ...$10.00.
+Company Servers Electricity Cost
+eBay 16K ∼0.6×105 MWh ∼$3.7M
+Akamai 40K ∼1.7×105 MWh ∼$10M
+Rackspace 50K ∼2×105 MWh ∼$12M
+Microsoft >200K >6×105 MWh >$36M
+Google >500K >6.3×105 MWh >$38M
+USA (2006) 10.9M 610×105 MWh $4.5B
+MIT campus 2.7×105MWh $62M
+Figure 1: Estimated annual electricity costs for large
+companies (servers and infrastructure) @ $60/MWh.
+These are conservative estimates, meant to be lower
+bounds. See §2.1 for derivation details. For scale, we
+have included the actual 2007 consumption and utility
+bill for the MIT campus, including dormitories and labs.
+Organizations such as Google, Microsoft, Amazon, Yahoo!,
+and many other operators of large networked systems
+cannot ignore their energy costs. A back-of-the-envelope calculation
+for Google suggests it consumes more than $38M
+worth of electricity annually (figure 1). A modest 3% reduction
+would therefore exceed a million dollars every year. We
+project that even a smaller system like Akamai’s1
+consumes
+an estimated $10M worth of electricity annually2

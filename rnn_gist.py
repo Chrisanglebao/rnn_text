@@ -84,6 +84,7 @@ while True:
     hprev = np.zeros((hidden_size,1)) # reset RNN memory
     p = 0 # go from start of data
   inputs = [char_to_ix[ch] for ch in data[p:p+seq_length]]
+  #print inputs
   targets = [char_to_ix[ch] for ch in data[p+1:p+seq_length+1]]
 
   # sample from the model now and then
